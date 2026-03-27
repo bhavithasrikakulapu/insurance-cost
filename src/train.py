@@ -23,6 +23,10 @@ for lr in learning_rates:
 ridge = Ridge(alpha=1.0)
 ridge.fit(X[:, 1:], y)
 
-joblib.dump(ridge, "outputs/model.joblib", protocol=2)
+# joblib.dump(ridge, "outputs/model.joblib", protocol=2)
+# replacing
+np.save("outputs/model_coef.npy", ridge.coef_)
+np.save("outputs/model_intercept.npy", np.array([ridge.intercept_]))
+print("Training complete. Model saved.")
 
 print("Training complete. Model saved.")
