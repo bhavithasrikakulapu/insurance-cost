@@ -28,4 +28,4 @@ input_scaled = scaler.transform(raw)
 
 if st.button("Predict"):
     prediction = np.dot(input_scaled, coef) + intercept[0]
-    st.success(f"Estimated Cost: ${prediction:.2f}")
+    st.success(f"Estimated Cost: ${prediction[0]:.2f}")
