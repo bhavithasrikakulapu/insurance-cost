@@ -3,7 +3,11 @@ import joblib
 import numpy as np
 import os
 
-model = joblib.load(os.path.join(os.path.dirname(__file__), "../outputs/model.joblib"))
+# model = joblib.load(os.path.join(os.path.dirname(__file__), "../outputs/model.joblib"))
+# Replacing
+coef = np.load(os.path.join(os.path.dirname(__file__), "../outputs/model_coef.npy"))
+intercept = np.load(os.path.join(os.path.dirname(__file__), "../outputs/model_intercept.npy"))
+
 
 st.title("Insurance Cost Predictor")
 
@@ -19,6 +23,7 @@ smoker_val = 1 if smoker == "Yes" else 0
 input_data = np.array([[age, bmi, children, smoker_val]])
 
 if st.button("Predict"):
-    prediction = model.predict(input_data)[0]
+    # prediction = model.predict(input_data)[0]
+    prediction = np.dot(input_features, coef) + intercept[0]
     st.success(f"Estimated Cost: ${prediction:.2f}")
 
