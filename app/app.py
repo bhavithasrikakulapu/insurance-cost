@@ -1,8 +1,9 @@
 import streamlit as st
 import joblib
 import numpy as np
+import os
 
-model = joblib.load("outputs/model.joblib")
+model = joblib.load(os.path.join(os.path.dirname(__file__), "../outputs/model.joblib"))
 
 st.title("Insurance Cost Predictor")
 
