@@ -3,5 +3,5 @@ numpy
 scikit-learn
 matplotlib
 joblib
-streamlit==1.38.0
+streamlit==1.28.0
 altair==4.2.2
