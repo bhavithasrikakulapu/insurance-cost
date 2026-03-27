@@ -24,6 +24,6 @@ input_data = np.array([[age, bmi, children, smoker_val]])
 
 if st.button("Predict"):
     # prediction = model.predict(input_data)[0]
-    prediction = np.dot(input_features, coef) + intercept[0]
+    prediction = np.dot(input_data, coef) + intercept[0]
     st.success(f"Estimated Cost: ${prediction:.2f}")
 
