@@ -23,6 +23,6 @@ for lr in learning_rates:
 ridge = Ridge(alpha=1.0)
 ridge.fit(X[:, 1:], y)
 
-joblib.dump(ridge, "outputs/model.joblib")
+joblib.dump(ridge, "outputs/model.joblib", protocol=2)
 
 print("Training complete. Model saved.")
